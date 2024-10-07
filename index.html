@@ -13,19 +13,23 @@
 <body >
     <nav>LIGHT! [under construction]</nav>
     <div id="shell-title"> shell > </div>
-    <div id="py-shell"><script type="py" terminal worker style="background-color: rgb(255, 255, 255);">
-        from pyscript import ffi
-        __terminal__.options = ffi.to_js({"theme": 
-                                            {"background":"white"},
-                                        "minimumContrastRatio":6,
-                                        "cursorStyle":"underline",
-                                        "cursorBlink":True,
-                                        "allowTransparency":False,
-                                        })
-        __terminal__.write("\x9D12;#828181\x07")
-        import code
-        code.interact()
-    </script><!-- <textarea name="" id="shell-area"></textarea> -->
+    <div id="py-shell">
+        <script type="py" terminal worker config="./config.json">
+            from pyscript import ffi, js_modules
+            addon = js_modules.weblinks.FitAddon.new()
+            __terminal__.loadAddon(addon)
+            addon.fit()
+            __terminal__.options = ffi.to_js({"theme": 
+                                                {"background":"white"},
+                                            "minimumContrastRatio":6,
+                                            "cursorStyle":"underline",
+                                            "cursorBlink":True,
+                                            "allowTransparency":False,
+                                            })
+            __terminal__.write("\x9D12;#828181\x07")
+            import code
+            code.interact()
+        </script><!-- <textarea name="" id="shell-area"></textarea> -->
     </div>
 <!-- <script type="py" src="./main.py" config="./pyscript.toml"></script> -->
 </body>
