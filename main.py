@@ -3,7 +3,7 @@ import code
 
 # addon = js_modules.weblinks.FitAddon.new()
 __terminal__.options = ffi.to_js({"theme":
-                                        {"background":"black"},
+                                        {"background":"white"},
                                     "minimumContrastRatio":6,
                                     "cursorStyle":"underline",
                                     "cursorBlink":True,
