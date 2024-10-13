@@ -1,6 +1,6 @@
 from pyscript import document, window, ffi, when
 from js import console
-from shell import loadTerminal
+# from shell import loadTerminal
 
 
 ROOT = document.querySelector(':root')
@@ -54,7 +54,7 @@ def toggleTheme(event):
         curr_theme_ind.innerHTML = "!Dark"
         ROOT.style.setProperty("--bg_col", bg_dark)
         ROOT.style.setProperty("--fg_col", fg_dark)
-    loadTerminal()
+    # loadTerminal()
 
 
 if __name__ == "__main__":
