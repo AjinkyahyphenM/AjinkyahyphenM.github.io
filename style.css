@@ -15,6 +15,7 @@ body{
     font-style: normal;
     font-size: xx-large;
     background-color: var(--bg_col,rgb(230, 230, 230)); 
+    color: var(--fg_col);
 }
 
 nav{
@@ -63,6 +64,13 @@ button.nav_div{
     width: 100%;
     align-items:center;
     justify-content: center;
+}
+
+.content{
+    display: flex;
+    height: 90%;
+    width: 100%;
+    padding: 1%;
 }
 
 .trm_cnt{
