@@ -1,5 +1,5 @@
 :root{
-    --bg_light : rgb(119, 190, 119);
+    --bg_light : rgba(119, 190, 119, 0.600);
     --fg_light : rgb(60, 60, 60);
     --bg_dark  : rgb(30, 30, 30);
     --fg_dark  : rgb(230, 230, 230);
@@ -55,7 +55,7 @@ button.nav_div{
     height: 20%;
     border:none;
     color: var(--fg_col);
-    background-color: var(--bg_col);
+    background-color:var(--bg_col);
 }
 
 .nav_cnt{
@@ -68,9 +68,48 @@ button.nav_div{
 
 .content{
     display: flex;
-    height: 90%;
-    width: 100%;
-    padding: 1%;
+    flex-flow: column nowrap;
+    margin: 1%;
+}
+
+.home{
+    display: flex;
+    flex-flow: column nowrap;
+    border-style: solid;
+    border-color: var(--fg_col); 
+    border-width: 2px;
+    padding: 15px;
+    margin-bottom: 1%;
+}
+
+.about{
+    display: flex;
+    flex-flow: column nowrap;
+    border-style: solid;
+    border-color: var(--fg_col); 
+    border-width: 2px;
+    padding: 15px;
+    margin-bottom: 1%;
+}
+
+.projects{
+    display: flex;
+    flex-flow: column nowrap;
+    border-style: solid;
+    border-color: var(--fg_col); 
+    border-width: 2px;
+    padding: 15px;
+    margin-bottom: 1%;
+}
+
+.contact{
+    display: flex;
+    flex-flow: column nowrap;
+    border-style: solid;
+    border-color: var(--fg_col); 
+    border-width: 2px;
+    padding: 15px;
+    margin-bottom: 1%;
 }
 
 .trm_cnt{
