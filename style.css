@@ -1,8 +1,8 @@
 :root{
-    --bg_light : rgba(119, 190, 119, 0.600);
-    --fg_light : rgb(60, 60, 60);
-    --bg_dark  : rgb(30, 30, 30);
-    --fg_dark  : rgb(230, 230, 230);
+    --bg_light : rgb(220, 220, 220);
+    --fg_light : rgb(20, 20, 20);
+    --bg_dark  : rgb(119, 119, 119);
+    --fg_dark  : rgb(255, 255, 255);
     --bg_col   : var(--bg_dark);
     --fg_col   : var(--fg_dark);
 }
@@ -10,17 +10,33 @@
 body{
     height: 100%;
     width: 100%;
-    font-family: "Tiny5", sans-serif;
-    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 200;
     font-style: normal;
-    font-size: xx-large;
+    font-size: x-large;
     background-color: var(--bg_col,rgb(230, 230, 230)); 
     color: var(--fg_col);
 }
 
 nav{
     height: 10%;
+    width: 100%;
     font-weight: lighter;
+    position: fixed;
+    top: 0;
+    background-color: var(--bg_col,rgb(230, 230, 230)); 
+    color: var(--fg_col);
+    
+}
+
+/*  */
+
+.nav_cnt{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    align-items:center;
+    justify-content: center;
 }
 
 .nav_div{
@@ -58,18 +74,29 @@ button.nav_div{
     background-color:var(--bg_col);
 }
 
-.nav_cnt{
-    display: flex;
-    flex-flow: row nowrap;
-    width: 100%;
-    align-items:center;
-    justify-content: center;
-}
-
 .content{
     display: flex;
     flex-flow: column nowrap;
     margin: 1%;
+    margin-top: 6%;
+}
+
+.cover{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-left: 10%;
+}
+
+.cover_title{
+    display: flex;
+    font-size:700%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cover_sub{
+    display: flex;
+    font-size:300%;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .home{
@@ -83,6 +110,16 @@ button.nav_div{
 }
 
 .about{
+    display: flex;
+    flex-flow: column nowrap;
+    border-style: solid;
+    border-color: var(--fg_col); 
+    border-width: 2px;
+    padding: 15px;
+    margin-bottom: 1%;
+}
+
+.pong{
     display: flex;
     flex-flow: column nowrap;
     border-style: solid;
