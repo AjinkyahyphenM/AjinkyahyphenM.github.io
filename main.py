@@ -1,10 +1,12 @@
 from pyscript import document, window, ffi, when
 from js import console
+from pyodide.ffi.wrappers import add_event_listener
 # from shell import loadTerminal
 
 
 ROOT = document.querySelector(':root')
 STY = window.getComputedStyle(ROOT)
+TERM = {}
 
 def isVisibleInViewport(element):
     item = element.getBoundingClientRect()
@@ -68,21 +70,29 @@ def toggleTheme(event):
         ROOT.style.setProperty("--fg_col", fg_dark)
     # loadTerminal()
 
-def updateNav():
+def updateNav(event=None):
     home     = document.getElementById("home_ele")
     about    = document.getElementById("about_ele")
     projects = document.getElementById("projects_ele")
     contacts = document.getElementById("contacts_ele")
-    nav_bar = [home, about, projects, contacts]
+    nav      = document.getElementById("nav_ele")
+    nav_home     = document.getElementById("nav_home_ele")
+    nav_about    = document.getElementById("nav_about_ele")
+    nav_projects = document.getElementById("nav_projects_ele")
+    nav_contacts = document.getElementById("nav_contact_ele")
+    nav_bar = [(home,nav_home), (about,nav_about), (projects,nav_projects), (contacts, nav_contacts)]
     for item in nav_bar:
-        if isVisibleInViewport(item):
-            console.log(item)
+        if isVisibleInViewport(item[0]):
+            item[1].classList.add("nav_div_act")
+            for it in nav_bar:
+                if it is not item:
+                    it[1].classList.remove("nav_div_act") 
+
 
 
 def load(event = None):
     setTheme()
-    window.addEventListener('scroll', updateNav())
-    console.log("running...")
 
 if __name__ == "__main__":
+    add_event_listener(window,"scroll", updateNav)
     load()
