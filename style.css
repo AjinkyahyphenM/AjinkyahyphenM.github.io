@@ -1,0 +1,257 @@
+:root{
+  --bg_light : rgb(220, 220, 220);
+  --bg_light :#FFF3DA;
+  --fg_light : rgb(20, 20, 20);
+  --bg_dark  : rgb(119, 119, 119);
+  --fg_dark  : rgb(255, 255, 255);
+  --bg_col   : var(--bg_light);
+  --fg_col   : var(--fg_light);
+  --border_dev : 1px solid black;
+  --border_prod: none;
+  --font_title: "DM Serif Display", serif;
+  --font_text: "Noto Serif", serif;
+  --font_special: "Prata", serif;
+  --border: var(--border_prod);
+}
+
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg_col);
+  margin:0px;
+}
+
+/* NAVIGATION SECTION STARTS */
+
+nav{
+  height: 10%;
+  width: 100%;
+  background-color: inherit;
+  border: var(--border);
+}
+
+.nav_cnt{
+  height:100%;
+  width: auto;
+  margin-left: 30px;
+  margin-right: 30px;
+  display:flex;
+  flex: 0 0 100%;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  border: var(--border)
+}
+
+.nav_div1{
+  height: 100%;
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 700px;
+  border: var(--border)
+}
+
+.nav_div1 .cmn_div{
+  height: 100%;
+  min-width: 100px;
+}
+
+.nav_div2{
+  height: fit-content;
+  display:none;
+  flex-flow:column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1 1 500px;
+  border: var(--border);
+}
+
+.nav_div2 .cmn_div{
+  height: 100%;
+  width: 200px;
+}
+
+.nav_div3{
+  display:none;
+}
+/* NAVIGATION SECTION ENDS */
+
+/* HERO SECTION STARTS */
+.hero{
+  height: 40%;
+  width: 100%;
+}
+
+.hero_cnt{
+  height: 100%;
+  width: auto;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  border: var(--border);
+}
+
+.hero_div1{
+  height: auto;
+  width: fit-content;
+  border: var(--border);
+  padding: 20px;
+  padding-right: 5px;
+  margin-left: 15%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero_div2{
+  height: auto;
+  width: 30%;
+  border: var(--border);
+  padding: 20px;
+  padding-left: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero_div1 div{
+  height: 50px;
+  max-height: 150px;
+  margin-left: 7px;
+  margin-right: 7px;
+  display: flex;
+  flex-flow: row nowrap;
+  border: var(--border);
+}
+.hero_div2 div{
+  height: 50px;
+  max-height: 150px;
+  margin-left: 7px;
+  margin-right: 7px;
+  display: flex;
+  flex-flow: row nowrap;
+  border: var(--border);
+}
+
+.filler_div1{
+  margin: 30px;
+  border: var(--border);
+}
+
+/* HERO SECTION ENDS */
+
+/* FOOTER SECTION STARTS */
+
+
+
+/* FOOTER SECTION ENDS */
+
+
+/* COMMON SECTION STARTS */
+
+.cmn_div{
+  height: 100%;
+  width: 100%;
+  border: var(--border);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.cmn_text{
+  font-family:var(--font_text);
+  font-size: x-large;
+  color: var(--fg_col);
+}
+
+.cmn_link{
+  text-decoration: none;
+  font-family: var(--font_text);
+  font-size: large;
+  color: var(--fg_col);
+}
+
+.cmn_btn{
+  height: 30px;
+  width: 100px;
+  padding:auto;
+  border: var(--border)
+}
+
+.hero_txt{
+  font-family: var(--font_title);
+  font-size: 300%;
+  color: var(--fg_col);
+  padding: 0px;
+}
+
+.hero_a{
+  font-family: var(--font_title);
+  font-size: 300%;
+}
+
+.hero_better{
+  font-family: var(--font_title);
+  font-size: 300%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* COMMON SECTION ENDS */
+
+/* RESPONSIVE SECTION STARTS */
+
+@media only screen and (max-width: 700px){
+
+  nav{
+    height: fit-content;
+  }
+
+  .nav_cnt{
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  .hero_div1{
+    margin: 0px;
+  }
+
+  .hero_div2{
+    justify-content: center;
+  }
+  /* .nav_div1{
+    display: none;
+  }
+
+  .nav_div3{
+    display: flex;
+  } */
+
+}
+
+@media only screen and (min-width: 700px){
+
+  /* .nav_div2 .cmn_div{
+    display: none;
+  }
+
+  .nav_div3{
+    display: none;
+  } */
+}
+
+/* RESPONSIVE SECTION ENDS */
