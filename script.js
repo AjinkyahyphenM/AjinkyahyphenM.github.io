@@ -1,4 +1,13 @@
 
+let main_scroll = 0
+let nav_opacity = 100
+let scroll_reference = 0
+
+const NAV_HEIGHT = Number(getComputedStyle(document.querySelector("nav")).getPropertyValue("height").slice(0,-2))
+const BODY_HEIGHT = getComputedStyle(document.querySelector("body")).getPropertyValue("height")
+const HERO_HEIGHT = Number(getComputedStyle(document.querySelector(".hero")).getPropertyValue("height").slice(0, -2))
+
+
 const WORDSPACE = {
   // "words":["Better.", "बेहतर.", "より良い.", "mejor.", "meilleur."],
   "words": ["Human.", "Writer.", "Engineer.", "Programmer."],
@@ -6,21 +15,6 @@ const WORDSPACE = {
   "word_ptr": 0,
   "inc": true
 }
-
-const intersectorOptions = {
-  "threshold": 0.1
-}
-
-function dispNavMenu(){
-  if(document.getElementById("mob_nav").style.display == "flex"){
-    document.getElementById("mob_nav").style.display = "none";
-    console.log(document.getElementById("mob_nav").style.display);
-  }
-  else{
-    document.getElementById("mob_nav").style.display = "flex";
-  }
-}
-
 
 function anmHero(){
 
@@ -60,19 +54,56 @@ function anmHero(){
 
 }
 
+function calculateScroll(){
+  main_scroll = document.querySelector("main").scrollTop
+  if (main_scroll > scroll_reference){
+    document.querySelector(".filler_cnt").innerHTML += "<div> &nbsp </div>"
+    scroll_reference = main_scroll
+    // updateNav("dec")
+  }
+  else if (main_scroll < scroll_reference){
+    document.querySelector(".filler_cnt").innerHTML.replace("<div> &nbsp </div>", "")
+    scroll_reference = main_scroll
+    // updateNav("inc")
+  }
+}
+
+function updateNav(mode){
+  if (mode == "dec"){
+    nav_opacity = (nav_opacity-=5) >= 0 ? nav_opacity-=5 : 0
+    document.querySelector("nav").style.opacity = `${nav_opacity}%`
+  }
+  else{
+    nav_opacity = (nav_opacity++) <= 100 ? nav_opacity++ : 100
+    document.querySelector("nav").style.opacity = `${nav_opacity}%`
+  }
+}
+
+function updateHero(){
+  let hero_ele = document.querySelector(".hero")
+  let main_ele = document.querySelector("main")
+  let opacity = hero_ele.style.opacity
+  let nav_height = getComputedStyle(document.querySelector("nav")).getPropertyValue("height")
+  let top = 0
+  let scale = 1
+
+  // height = (height + main_scroll) < 90 ? (height + main_scroll) : 90
+  top = (top - main_scroll/4) > -HERO_HEIGHT ? (top - main_scroll/4) : -HERO_HEIGHT
+  opacity = (100 - main_scroll) >= 0 ? (100-main_scroll) : 0
+  scale = (1 - (main_scroll/4)/100) > 0 ? (1 - (main_scroll/4)/100) : 0
+
+
+  hero_ele.style.opacity = `${opacity}%`
+  hero_ele.style.transform = `scale(${scale})`
+  main_ele.style.position = `relative`
+  main_ele.style.top = `${top}px`
+
+}
+
+
 setInterval(anmHero, 300)
 
-
-
-// const observer = new IntersectionObserver((entries) =>{
-//   entries.forEach((entry)=>{
-//     if (entry.isIntersecting){
-//       document.querySelector(".hero_cnt").style.display = "flex"
-//     }
-//     else{
-//       document.querySelector(".hero_cnt").style.display = "none"
-//     }
-//   })
-// }, intersectorOptions)
-// const ele = document.querySelector(".nav_cnt")
-// observer.observe(ele)
+document.querySelector("main").addEventListener("scroll", ()=>{
+  calculateScroll()
+  updateHero()
+})
