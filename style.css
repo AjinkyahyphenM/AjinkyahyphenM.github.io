@@ -27,6 +27,10 @@ body{
   margin:0px;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 /* NAVIGATION SECTION STARTS */
 
 nav{
@@ -84,14 +88,33 @@ nav{
 }
 /* NAVIGATION SECTION ENDS */
 
+/* MAIN SECTION STARTS */
+
+main{
+  height: 80vh;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: var(--border);
+  overflow: scroll;
+  background: url("./static/images/cat.jpeg");
+  background-position: top 100px;
+  background-size: cover;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* MAIN SECTION ENDS */
+
 /* HERO SECTION STARTS */
 .hero{
-  height: 40%;
+  height: auto;
   width: 100%;
 }
 
 .hero_cnt{
-  height: 100%;
+  height: auto;
   width: auto;
   margin-left: 30px;
   margin-right: 30px;
@@ -153,6 +176,19 @@ nav{
 
 /* HERO SECTION ENDS */
 
+/* CONTENT SECTION STARTS */
+
+.content{
+  height:auto;
+  width:auto;
+}
+
+.content_cnt{
+  border: var(--border);
+}
+
+/* CONTENT SECTION ENDS */
+
 /* FOOTER SECTION STARTS */
 
 
@@ -197,11 +233,13 @@ nav{
   font-size: 300%;
   color: var(--fg_col);
   padding: 0px;
+  margin: 0px;
 }
 
 .hero_a{
   font-family: var(--font_title);
   font-size: 300%;
+  margin: 0px;
 }
 
 .hero_better{
@@ -209,6 +247,7 @@ nav{
   font-size: 300%;
   font-weight: bold;
   font-style: italic;
+  margin: 0px;
 }
 
 /* COMMON SECTION ENDS */
@@ -233,14 +272,17 @@ nav{
   .hero_div2{
     justify-content: center;
   }
-  /* .nav_div1{
-    display: none;
+  .hero_txt{
+    font-size: 200%;
   }
-
-  .nav_div3{
-    display: flex;
-  } */
-
+  
+  .hero_a{
+    font-size: 200%;
+  }
+  
+  .hero_better{
+    font-size: 200%;
+  }
 }
 
 @media only screen and (min-width: 700px){
