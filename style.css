@@ -96,9 +96,9 @@ main{
   margin-right: 50px;
   border: var(--border);
   overflow: scroll;
-  background: url("./static/images/cat.jpeg");
-  background-position: top 100px;
-  background-size: cover;
+  background: url("./static/images/catMobile.jpeg");
+  background-size:contain;
+  background-position: center;
 }
 
 main::-webkit-scrollbar {
@@ -231,7 +231,7 @@ main::-webkit-scrollbar {
 .hero_txt{
   font-family: var(--font_title);
   font-size: 300%;
-  color: var(--fg_col);
+  font-style: oblique;
   padding: 0px;
   margin: 0px;
 }
@@ -239,6 +239,7 @@ main::-webkit-scrollbar {
 .hero_a{
   font-family: var(--font_title);
   font-size: 300%;
+  font-style: oblique;
   margin: 0px;
 }
 
@@ -246,7 +247,7 @@ main::-webkit-scrollbar {
   font-family: var(--font_title);
   font-size: 300%;
   font-weight: bold;
-  font-style: italic;
+  /* font-style: italic; */
   margin: 0px;
 }
 
@@ -282,6 +283,12 @@ main::-webkit-scrollbar {
   
   .hero_better{
     font-size: 200%;
+  }
+
+  main{
+    background: url("./static/images/catMobile.jpeg");
+    background-size: contain;
+    background-position: center;
   }
 }
 
